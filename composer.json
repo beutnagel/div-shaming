@@ -1,0 +1,69 @@
+{
+    "name": "beutnagel/div-shaming",
+    "description": "it IS wrong to use <div>",
+    "keywords": ["div", "semantic html", "humor"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.1.*",
+        "jeremykendall/php-domain-parser": "~2.0",
+        "maximebf/debugbar": "1.*",
+        "rmccue/requests": ">=1.0",
+        "yangqi/htmldom": "dev-master",
+        "barryvdh/laravel-ide-helper": "^2.0@dev",
+        "barryvdh/laravel-debugbar": "^2.0@dev",
+        "neitanod/forceutf8": "dev-master",
+
+        "novutec/domainparser": ">=2.0.3",
+        "novutec/whoisparser": ">=3.2.2"
+
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "phpspec/phpspec": "~2.1",
+        "phpdocumentor/phpdocumentor": "2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "psr-0": {
+            "Requests": "library/"
+        },
+        "files": [
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
+            "php artisan optimize"
+        ],
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
